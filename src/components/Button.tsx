@@ -2,18 +2,15 @@ import { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  color?: string;
+  onClick(): void;
 }
 
-const Button = ({ children }: Props) => {
+const Button = ({ children, color = "primary", onClick }: Props) => {
   return (
-    <div
-      className="btn btn-primary btn-lg"
-      onClick={() => {
-        console.log("You clicked a large button");
-      }}
-    >
+    <button className={"btn btn-" + color + " btn-lg"} onClick={onClick}>
       {children}
-    </div>
+    </button>
   );
 };
 
